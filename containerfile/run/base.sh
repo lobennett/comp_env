@@ -17,18 +17,18 @@ echo "deb-src $REPO $DIST-backports main restricted universe multiverse" >> /etc
 echo "deb http://security.ubuntu.com/ubuntu $DIST-security main restricted universe multiverse" >> /etc/apt/sources.list
 echo "deb-src http://security.ubuntu.com/ubuntu $DIST-security main restricted universe multiverse" >> /etc/apt/sources.list
 
-# fully upgrade
-apt-get -qq update
-apt-get -qq install apt-utils
-apt-get -qq upgrade
-apt-get -qq dist-upgrade
-
-# base packages
-apt-get -qq install wget curl rsync git zip unzip p7zip man-db less vim ca-certificates
+apt-get -qq update && \
+apt-get -qq install --no-install-recommends apt-utils curl rsync git zip unzip p7zip man-db less vim ca-certificates && \
+apt-get -qq upgrade && \
+apt-get -qq dist-upgrade && \
+apt-get -qq autoremove && \
+apt-get -qq clean && \
+rm -rf /var/lib/apt/lists/*
 
 # rclone
 curl https://rclone.org/install.sh | bash
 
-# clean up
-apt-get -qq autoremove
-apt-get -qq clean
+# code-server
+# - commented out, but might be wanted if planning
+# to use this on Open OnDemand
+# curl -fsSL https://code-server.dev/install.sh | bash

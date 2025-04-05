@@ -8,4 +8,4 @@
 # for creating new python projects. 
 
 source /opt/.venv/bin/activate
-cookiecutter https://github.com/lobennett/uv_cookie.git
+uvx cookiecutter https://github.com/lobennett/uv_cookie.git
