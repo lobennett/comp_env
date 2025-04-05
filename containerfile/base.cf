@@ -1,0 +1,10 @@
+FROM ubuntu:22.04
+
+ARG SH_RUN=base.sh
+ARG TMPDIR=/tmp
+
+COPY run/$SH_RUN $TMPDIR
+
+RUN \
+    bash $TMPDIR/$SH_RUN && \
+    rm $TMPDIR/$SH_RUN

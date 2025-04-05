@@ -1,0 +1,13 @@
+FROM base
+
+ARG SH_RUN=py_env.sh
+ARG TMPDIR=/tmp
+ARG SETUP_SCRIPT=src/setup.sh
+
+COPY run/$SH_RUN $TMPDIR
+COPY ${SETUP_SCRIPT} /examples/setup.sh
+
+RUN \
+    bash $TMPDIR/$SH_RUN && \
+    rm $TMPDIR/$SH_RUN && \
+    chmod +x /examples/setup.sh
