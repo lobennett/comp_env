@@ -11,8 +11,8 @@
 # Paul Nuyujukian's comp-env repository, which can be found here:
 # https://code.stanford.edu/bil-public/comp-env/-/tree/main?ref_type=heads
 
-IMAGES = base py_env
-TARGET = py_env
+IMAGES = base py_env py_r
+TARGET = py_r
 
 # Load the environment variables from the .env file
 -include .env
